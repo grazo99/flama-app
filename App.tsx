@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { PaperProvider } from "react-native-paper";
 import { theme, useCustomFonts } from "./src/theme";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -8,7 +7,12 @@ import { Details } from "./src/screens/Details";
 import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from "expo-app-loading";
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  EventFeed: undefined; // undefined because you aren't passing any params to the home screen
+  Details: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   const fontsLoaded = useCustomFonts();
@@ -24,12 +28,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

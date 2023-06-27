@@ -1,6 +1,5 @@
 import { MD3Type } from "react-native-paper/lib/typescript/src/types";
 import { useFonts } from "expo-font";
-import { useEffect } from "react";
 
 export const useCustomFonts = () => {
   const [fontsLoaded] = useFonts({

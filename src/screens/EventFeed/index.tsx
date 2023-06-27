@@ -2,9 +2,13 @@ import React from "react";
 import { View } from "react-native";
 import { Button, Text } from "react-native-paper";
 import { useTheme } from "react-native-paper";
-import PropTypes from "prop-types";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../../App";
 
-export const EventFeed = ({ navigation }) => {
+type EventFeedScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "Details">;
+};
+export const EventFeed = ({ navigation }: EventFeedScreenProps) => {
   const { colors } = useTheme();
   return (
     <View
@@ -24,10 +28,4 @@ export const EventFeed = ({ navigation }) => {
       </Button>
     </View>
   );
-};
-
-EventFeed.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
 };

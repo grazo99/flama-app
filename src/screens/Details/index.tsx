@@ -2,8 +2,15 @@ import React from "react";
 import { View } from "react-native";
 import { Button, Text } from "react-native-paper";
 import { useTheme } from "react-native-paper";
+import PropTypes from "prop-types";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../../App";
 
-export const Details = ({ navigation }: any) => {
+type DetailsScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "Details">;
+};
+
+export const Details = ({ navigation }: DetailsScreenProps) => {
   const { colors } = useTheme();
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -17,4 +24,9 @@ export const Details = ({ navigation }: any) => {
       </Button>
     </View>
   );
+};
+Details.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
