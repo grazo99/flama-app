@@ -3,13 +3,13 @@ import {
   configureFonts,
 } from "react-native-paper";
 import { fontsConfig } from "./fonts";
+import { colorsConfig } from "./colors";
+import { useCustomFonts } from "./fonts";
 
-export const theme = {
+const theme = {
   ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: "#FE7032",
-    secondary: "yellow",
-  },
+  colors: colorsConfig,
   fonts: configureFonts({ config: fontsConfig }),
 };
+
+export { theme, useCustomFonts };
