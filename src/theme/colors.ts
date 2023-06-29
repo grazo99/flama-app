@@ -4,5 +4,5 @@ export const colorsConfig = {
   ...DefaultTheme.colors,
   primary: "#FE7032",
   secondary: "yellow",
+  surface: "#232326",
 };
-
