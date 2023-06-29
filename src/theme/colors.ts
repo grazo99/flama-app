@@ -5,3 +5,4 @@ export const colorsConfig = {
   primary: "#FE7032",
   secondary: "yellow",
 };
+

@@ -8,6 +8,7 @@ export const useCustomFonts = () => {
     "Rubik-500": require("../../assets/fonts/Rubik-500.ttf"),
     "Rubik-600": require("../../assets/fonts/Rubik-600.ttf"),
     "Rubik-700": require("../../assets/fonts/Rubik-700.ttf"),
+    "SourceCodePro-400": require("../../assets/fonts/SourceCodePro-400.ttf"),
   });
 
   return fontsLoaded;
@@ -58,21 +59,21 @@ export const fontsConfig: Record<string, MD3Type> = {
     lineHeight: 28,
   },
   labelSmall: {
-    fontFamily: "Rubik-400",
+    fontFamily: "SourceCodePro-400",
     fontSize: 11,
     fontWeight: "normal",
     letterSpacing: 0.5,
     lineHeight: 16,
   },
   labelMedium: {
-    fontFamily: "Rubik-400",
+    fontFamily: "SourceCodePro-400",
     fontSize: 12,
     fontWeight: "normal",
     letterSpacing: 0.5,
     lineHeight: 16,
   },
   labelLarge: {
-    fontFamily: "Rubik-400",
+    fontFamily: "SourceCodePro-400",
     fontSize: 14,
     fontWeight: "normal",
     letterSpacing: 0.1,
