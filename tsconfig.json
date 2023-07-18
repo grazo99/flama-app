@@ -1,13 +1,17 @@
 {
   "extends": "expo/tsconfig.base",
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
   "compilerOptions": {
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@components": ["src/components/*"],
-      "@screens": ["src/screens/*"],
-      "@utils": ["src/utils/*"],
-      "@theme": ["src/theme/*"]
+      "@components": ["./src/components/*"],
+      "@screens": ["./src/screens/*"],
+      "@utils": ["./src/utils/*"],
+      "@theme": ["./src/theme/*"]
     }
-  }
+  },
+  "exclude": ["node_modules"]
 }

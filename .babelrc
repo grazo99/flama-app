@@ -5,11 +5,10 @@
     [
       "module-resolver",
       {
-        "root": ["./src"],
+        "root": ["."],
         "alias": {
           "@components": "./src/components",
           "@screens": "./src/screens",
-          "@utils": "./src/utils",
           "@theme": "./src/theme"
         }
       }
