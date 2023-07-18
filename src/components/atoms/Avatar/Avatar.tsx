@@ -6,8 +6,8 @@ import { AvatarImageSource } from "react-native-paper/lib/typescript/src/compone
 export type AvatarProps = {
   size: number;
   image: AvatarImageSource;
-  borderColor: ColorValue;
-  borderWidth: number;
+  borderColor?: ColorValue;
+  borderWidth?: number;
 };
 
 export const Avatar = ({

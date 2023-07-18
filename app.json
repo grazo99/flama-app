@@ -29,6 +29,9 @@
         "projectId": "c7658373-de56-4089-97d0-c76cb5d3f3a6",
         "storybookEnabled": true
       }
+    },
+    "packagerOpt": {
+      "config": ".babelrc"
     }
   }
 }

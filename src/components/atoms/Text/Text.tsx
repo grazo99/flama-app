@@ -1,6 +1,7 @@
 import React from "react";
 import { ColorValue, StyleSheet } from "react-native";
-import { Text } from "react-native-paper";
+import { Text as PaperText } from "react-native-paper";
+import { colorsConfig } from "src/theme/colors";
 import { CustomTypography } from "src/theme/fonts";
 
 const styles = StyleSheet.create({
@@ -9,24 +10,24 @@ const styles = StyleSheet.create({
 
 export type TextProps = {
   children: React.ReactNode;
-  borderColor: string;
+  borderColor?: string;
   customStyle?: StyleSheet;
-  textVariant: CustomTypography;
-  color: ColorValue;
+  variant: CustomTypography;
+  color?: ColorValue;
 };
 
-export const StyledText = ({
+export const Text = ({
   children,
   customStyle,
-  textVariant,
-  color,
+  variant,
+  color = colorsConfig.onBackground,
 }: TextProps) => {
   return (
-    <Text
+    <PaperText
       style={[styles.text, customStyle, { color: color }]}
-      variant={textVariant}
+      variant={variant}
     >
       {children}
-    </Text>
+    </PaperText>
   );
 };
