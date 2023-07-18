@@ -1,4 +1,6 @@
 import { MD3Type } from "react-native-paper/lib/typescript/src/types";
+import { RFValue } from "react-native-responsive-fontsize";
+
 import { useFonts } from "expo-font";
 
 export const useCustomFonts = () => {
@@ -16,93 +18,93 @@ export const useCustomFonts = () => {
 export const fontsConfig: Record<string, MD3Type> = {
   displaySmall: {
     fontFamily: "Rubik-400",
-    fontSize: 36,
+    fontSize: RFValue(36),
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: 44,
+    lineHeight: RFValue(44),
   },
 
   displayMedium: {
     fontFamily: "Rubik-400",
-    fontSize: 45,
+    fontSize: RFValue(45),
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: 52,
+    lineHeight: RFValue(52),
   },
 
   displayLarge: {
     fontFamily: "Rubik-400",
-    fontSize: 57,
+    fontSize: RFValue(57),
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: 64,
+    lineHeight: RFValue(64),
   },
   titleSmall: {
     fontFamily: "Rubik-400",
-    fontSize: 14,
+    fontSize: RFValue(14),
     fontWeight: "normal",
     letterSpacing: 0.1,
-    lineHeight: 20,
+    lineHeight: RFValue(20),
   },
   titleMedium: {
     fontFamily: "Rubik-400",
-    fontSize: 16,
+    fontSize: RFValue(16),
     fontWeight: "normal",
     letterSpacing: 0.15,
-    lineHeight: 24,
+    lineHeight: RFValue(24),
   },
   titleLarge: {
     fontFamily: "Rubik-400",
-    fontSize: 22,
+    fontSize: RFValue(22),
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: 28,
+    lineHeight: RFValue(28),
   },
   labelSmall: {
     fontFamily: "SourceCodePro-400",
-    fontSize: 11,
+    fontSize: RFValue(11),
     fontWeight: "normal",
     letterSpacing: 0.5,
-    lineHeight: 16,
+    lineHeight: RFValue(16),
   },
   labelMedium: {
     fontFamily: "SourceCodePro-400",
-    fontSize: 12,
+    fontSize: RFValue(12),
     fontWeight: "normal",
     letterSpacing: 0.5,
-    lineHeight: 16,
+    lineHeight: RFValue(16),
   },
   labelLarge: {
     fontFamily: "SourceCodePro-400",
-    fontSize: 14,
+    fontSize: RFValue(14),
     fontWeight: "normal",
     letterSpacing: 0.1,
-    lineHeight: 20,
+    lineHeight: RFValue(20),
   },
   bodySmall: {
     fontFamily: "Rubik-400",
-    fontSize: 12,
+    fontSize: RFValue(12),
     fontWeight: "normal",
     letterSpacing: 0.4,
-    lineHeight: 16,
+    lineHeight: RFValue(16),
   },
   bodyMedium: {
     fontFamily: "Rubik-400",
-    fontSize: 14,
+    fontSize: RFValue(14),
     fontWeight: "normal",
     letterSpacing: 0.25,
-    lineHeight: 20,
+    lineHeight: RFValue(20),
   },
   bodyLarge: {
     fontFamily: "Rubik-400",
-    fontSize: 16,
+    fontSize: RFValue(16),
     fontWeight: "normal",
     letterSpacing: 0.15,
-    lineHeight: 24,
+    lineHeight: RFValue(24),
   },
 };
 
-export enum CustomTypography {
+export enum Fonts {
   displayLarge = "displayLarge",
   displayMedium = "displayMedium",
   displaySmall = "displaySmall",
