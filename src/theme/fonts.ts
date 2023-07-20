@@ -1,5 +1,3 @@
-import { MD3Type } from "react-native-paper/lib/typescript/src/types";
-
 import { useFonts } from "expo-font";
 import { RFValue } from "react-native-responsive-fontsize";
 
@@ -16,90 +14,98 @@ export const useCustomFonts = () => {
   return fontsLoaded;
 };
 
-export const fontsConfig: Record<string, MD3Type> = {
+export type FontType = {
+  fontFamily: string;
+  fontSize: number;
+  fontWeight: string;
+  letterSpacing: number;
+  lineHeight: number;
+};
+
+export const fontsConfig: Record<string, FontType> = {
   displaySmall: {
     fontFamily: "Rubik-400",
-    fontSize: RFValue(3), // Adjust the scaling factor (3) based on your preference
+    fontSize: RFValue(36),
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: RFValue(4), // Adjust the scaling factor (4) based on your preference
+    lineHeight: RFValue(44),
   },
   displayMedium: {
     fontFamily: "Rubik-400",
-    fontSize: RFValue(3.75), // Adjust the scaling factor (3.75) based on your preference
+    fontSize: RFValue(45),
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: RFValue(4.33), // Adjust the scaling factor (4.33) based on your preference
+    lineHeight: RFValue(52),
   },
   displayLarge: {
     fontFamily: "Rubik-400",
-    fontSize: RFValue(4.75), // Adjust the scaling factor (4.75) based on your preference
+    fontSize: RFValue(57),
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: RFValue(5.33), // Adjust the scaling factor (5.33) based on your preference
+    lineHeight: RFValue(64),
   },
   titleSmall: {
     fontFamily: "Rubik-400",
-    fontSize: RFValue(1.17), // Adjust the scaling factor (1.17) based on your preference
+    fontSize: RFValue(14),
     fontWeight: "normal",
-    letterSpacing: RFValue(0.03), // Adjust the scaling factor (0.03) based on your preference
-    lineHeight: RFValue(1.67), // Adjust the scaling factor (1.67) based on your preference
+    letterSpacing: 0.1,
+    lineHeight: RFValue(20),
   },
   titleMedium: {
     fontFamily: "Rubik-400",
-    fontSize: RFValue(1.33), // Adjust the scaling factor (1.33) based on your preference
+    fontSize: RFValue(16),
     fontWeight: "normal",
-    letterSpacing: RFValue(0.04), // Adjust the scaling factor (0.04) based on your preference
-    lineHeight: RFValue(2), // Adjust the scaling factor (2) based on your preference
+    letterSpacing: 0.15,
+    lineHeight: RFValue(24),
   },
   titleLarge: {
     fontFamily: "Rubik-400",
-    fontSize: RFValue(1.85), // Adjust the scaling factor (1.85) based on your preference
+    fontSize: RFValue(22),
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: RFValue(2.33), // Adjust the scaling factor (2.33) based on your preference
+    lineHeight: RFValue(28),
   },
   labelSmall: {
     fontFamily: "SourceCodePro-400",
-    fontSize: RFValue(0.92), // Adjust the scaling factor (0.92) based on your preference
+    fontSize: RFValue(11),
     fontWeight: "normal",
-    letterSpacing: RFValue(0.025), // Adjust the scaling factor (0.025) based on your preference
-    lineHeight: RFValue(1.33), // Adjust the scaling factor (1.33) based on your preference
+    letterSpacing: 0.5,
+    lineHeight: RFValue(16),
   },
   labelMedium: {
     fontFamily: "SourceCodePro-400",
-    fontSize: RFValue(1), // Adjust the scaling factor (1) based on your preference
+    fontSize: RFValue(12),
     fontWeight: "normal",
-    letterSpacing: RFValue(0.025), // Adjust the scaling factor (0.025) based on your preference
-    lineHeight: RFValue(1.33), // Adjust the scaling factor (1.33) based on your preference
+    letterSpacing: 0.5,
+    lineHeight: RFValue(16),
   },
   labelLarge: {
     fontFamily: "SourceCodePro-400",
-    fontSize: RFValue(1.17), // Adjust the scaling factor (1.17) based on your preference
+    fontSize: RFValue(14),
     fontWeight: "normal",
-    letterSpacing: RFValue(0.03), // Adjust the scaling factor (0.03) based on your preference
-    lineHeight: RFValue(1.67), // Adjust the scaling factor (1.67) based on your preference
+    letterSpacing: 0.1,
+    lineHeight: RFValue(20),
   },
   bodySmall: {
     fontFamily: "Rubik-400",
-    fontSize: RFValue(1), // Adjust the scaling factor (1) based on your preference
+    fontSize: RFValue(12),
     fontWeight: "normal",
-    letterSpacing: RFValue(0.033), // Adjust the scaling factor (0.033) based on your preference
-    lineHeight: RFValue(1.33), // Adjust the scaling factor (1.33) based on your preference
+    letterSpacing: 0.4,
+    lineHeight: RFValue(16),
   },
   bodyMedium: {
     fontFamily: "Rubik-400",
-    fontSize: RFValue(1.17), // Adjust the scaling factor (1.17) based on your preference
+    fontSize: RFValue(14),
     fontWeight: "normal",
-    letterSpacing: RFValue(0.021), // Adjust the scaling factor (0.021) based on your preference
-    lineHeight: RFValue(1.67), // Adjust the scaling factor (1.67) based on your preference
+    letterSpacing: 0.25,
+    lineHeight: RFValue(20),
   },
   bodyLarge: {
     fontFamily: "Rubik-400",
-    fontSize: RFValue(1.33), // Adjust the scaling factor (1.33) based on your preference
+    fontSize: RFValue(16),
     fontWeight: "normal",
-    letterSpacing: RFValue(0.015), // Adjust the scaling factor (0.015) based on your preference
-    lineHeight: RFValue(2), // Adjust the scaling factor (2) based on your preference
+    letterSpacing: 0.15,
+    lineHeight: RFValue(24),
   },
 };
 

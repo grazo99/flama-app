@@ -1,15 +1,10 @@
-import {
-  MD3DarkTheme as DefaultTheme,
-  configureFonts,
-} from "react-native-paper";
-import { fontsConfig } from "./fonts";
-import { colorsConfig } from "./colors";
+import { colors } from "./colors";
+import { DefaultTheme } from "@react-navigation/native";
 import { useCustomFonts } from "./fonts";
 
-const theme = {
+const Theme = {
   ...DefaultTheme,
-  colors: colorsConfig,
-  fonts: configureFonts({ config: fontsConfig }),
+  colors,
 };
 
-export { theme, useCustomFonts };
+export { Theme, useCustomFonts };

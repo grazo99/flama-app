@@ -1,27 +1,32 @@
 import React from "react";
-import { ColorValue, StyleSheet } from "react-native";
-import { Avatar as PaperAvatar } from "react-native-paper";
-import { AvatarImageSource } from "react-native-paper/lib/typescript/src/components/Avatar/AvatarImage";
+import {
+  ColorValue,
+  StyleSheet,
+  Image,
+  ImageSourcePropType,
+} from "react-native";
 
 export type AvatarProps = {
   size: number;
-  image: AvatarImageSource;
   borderColor?: ColorValue;
   borderWidth?: number;
+  image: ImageSourcePropType;
 };
 
 export const Avatar = ({
   size,
   image,
   borderColor,
-  borderWidth,
+  borderWidth = 0,
 }: AvatarProps) => {
   const styles = StyleSheet.create({
     avatar: {
       borderColor: borderColor,
       borderWidth: borderWidth,
       borderRadius: 100,
+      width: size,
+      height: size,
     },
   });
-  return <PaperAvatar.Image style={styles.avatar} size={size} source={image} />;
+  return <Image style={styles.avatar} source={image} />;
 };

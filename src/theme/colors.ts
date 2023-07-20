@@ -1,8 +1,8 @@
-import { MD3DarkTheme as DefaultTheme } from "react-native-paper";
+import { DefaultTheme } from "@react-navigation/native";
 
-export const colorsConfig = {
+export const colors = {
   ...DefaultTheme.colors,
   primary: "#FE7032",
-  secondary: "yellow",
-  surface: "#232326",
+  textBody: "#FFFFFF",
+  background: "#000000",
 };
