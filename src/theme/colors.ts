@@ -4,5 +4,5 @@ export const colors = {
   ...DefaultTheme.colors,
   primary: "#FE7032",
   textBody: "#FFFFFF",
-  background: "#000000",
+  background: "#1A1A1A",
 };

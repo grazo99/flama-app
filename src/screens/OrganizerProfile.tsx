@@ -2,47 +2,52 @@ import { Avatar } from "../components/atoms/Avatar";
 import { Text } from "../components/atoms";
 import { Fonts } from "../theme/fonts";
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, SafeAreaView } from "react-native";
 import { colors } from "../theme/colors";
 
 const OrganizerProfile = () => {
   return (
-    <View style={styles.wrapper}>
+    <SafeAreaView>
       <View style={styles.container}>
-        <View style={styles.headerContainer}>
+        <View style={styles.header}>
           <Avatar
-            size={150}
+            size={100}
             image={{
-              uri: "https://yt3.googleusercontent.com/ytc/AGIKgqMMlR9_5ZiI_J5NjAu7w3Tg9b76OsqXTMrYi2_X7A=s900-c-k-c0x00ffffff-no-rj",
+              uri: mock.profile_pic,
             }}
           />
-          <Text variant={Fonts.titleLarge}>Key Poducciones</Text>
+          <View style={styles.headerTextArea}>
+            <Text variant={Fonts.titleLarge}>{mock.name}</Text>
+          </View>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: colors.background,
-    padding: 50,
-  },
   container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    maxWidth: 700,
-    width: "100%",
-    alignSelf: "center",
+    margin: 20,
   },
-  headerContainer: {
+  header: {
     flex: 1,
     flexDirection: "row",
     width: "100%",
+    gap: 15,
     justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  headerTextArea: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 10,
   },
 });
+
+const mock = {
+  name: "Key Producciones",
+  profile_pic:
+    "https://yt3.googleusercontent.com/ytc/AGIKgqMMlR9_5ZiI_J5NjAu7w3Tg9b76OsqXTMrYi2_X7A=s900-c-k-c0x00ffffff-no-rj",
+};
 
 export default OrganizerProfile;
