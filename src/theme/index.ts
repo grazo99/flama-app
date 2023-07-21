@@ -1,10 +1,10 @@
 import { colors } from "./colors";
 import { DefaultTheme } from "@react-navigation/native";
-import { useCustomFonts } from "./fonts";
+import { loadFonts, Fonts } from "./fonts";
 
 const Theme = {
   ...DefaultTheme,
   colors,
 };
 
-export { Theme, useCustomFonts };
+export { Theme, loadFonts, Fonts, colors };

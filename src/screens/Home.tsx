@@ -17,7 +17,7 @@ const Home = () => {
               uri: "https://yt3.googleusercontent.com/ytc/AGIKgqMMlR9_5ZiI_J5NjAu7w3Tg9b76OsqXTMrYi2_X7A=s900-c-k-c0x00ffffff-no-rj",
             }}
           />
-          <Text variant={Fonts.titleLarge}>Key Poducciones</Text>
+          <Text variant={Fonts.H2}>Key Poducciones</Text>
         </View>
       </View>
     </SafeAreaView>

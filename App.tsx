@@ -1,10 +1,23 @@
-import React from "react";
-import { useCustomFonts } from "./src/theme";
-import AppLoading from "expo-app-loading";
+import React, { useEffect, useState } from "react";
+import { loadFonts } from "./src/theme";
 import { RootNavigator } from "./src/navigation/RootNavigator";
 
 export default function App() {
-  const fontsLoaded = useCustomFonts();
-  if (!fontsLoaded) return <AppLoading />;
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadCustomFonts = async () => {
+      const fontsLoadedSuccessfully = await loadFonts();
+      setFontsLoaded(fontsLoadedSuccessfully);
+    };
+
+    loadCustomFonts();
+  }, []);
+
+  if (!fontsLoaded) {
+    // Show a loading screen or fallback while fonts are loading
+    return null;
+  }
+
   return <RootNavigator />;
 }

@@ -1,18 +1,43 @@
-import { useFonts } from "expo-font";
-import { RFValue } from "react-native-responsive-fontsize";
+import { loadAsync } from "expo-font";
 
-export const useCustomFonts = () => {
-  const [fontsLoaded] = useFonts({
-    "Rubik-300": require("../../assets/fonts/Rubik-300.ttf"),
-    "Rubik-400": require("../../assets/fonts/Rubik-400.ttf"),
-    "Rubik-500": require("../../assets/fonts/Rubik-500.ttf"),
-    "Rubik-600": require("../../assets/fonts/Rubik-600.ttf"),
-    "Rubik-700": require("../../assets/fonts/Rubik-700.ttf"),
-    "SourceCodePro-400": require("../../assets/fonts/SourceCodePro-400.ttf"),
-  });
+export const loadFonts = async () => {
+  // Remove the useFonts hook from here
+  // You should use it inside a functional component instead
 
-  return fontsLoaded;
+  try {
+    await Promise.all([
+      // Load the fonts using Font.loadAsync directly here
+      loadAsync({
+        "Rubik-Regular": require("../../assets/fonts/Rubik-Regular.ttf"),
+        "Rubik-Medium": require("../../assets/fonts/Rubik-Medium.ttf"),
+        "Rubik-SemiBold": require("../../assets/fonts/Rubik-SemiBold.ttf"),
+        "ChivoMono-Light": require("../../assets/fonts/ChivoMono-Light.ttf"),
+        "ChivoMono-Regular": require("../../assets/fonts/ChivoMono-Regular.ttf"),
+        "ChivoMono-Medium": require("../../assets/fonts/ChivoMono-Medium.ttf"),
+        "Lato-Light": require("../../assets/fonts/Lato-Light.ttf"),
+        "Lato-Regular": require("../../assets/fonts/Lato-Regular.ttf"),
+        "Lato-Bold": require("../../assets/fonts/Lato-Bold.ttf"),
+      }),
+    ]);
+
+    return true; // Return true if fonts loaded successfully
+  } catch (error) {
+    console.error("Error loading fonts:", error);
+    return false; // Return false if there was an error loading fonts
+  }
 };
+
+enum FontFamily {
+  HeadingRegular = "Rubik-Regular",
+  HeadingMedium = "Rubik-Medium",
+  HeadingSemiBold = "Rubik-SemiBold",
+  SubtitleLight = "ChivoMono-Light",
+  SubtitleRegular = "ChivoMono-Regular",
+  SubtitleMedium = "ChivoMono-Medium",
+  BodyLight = "Lato-Light",
+  BodyRegular = "Lato-Regular",
+  BodyBold = "Lato-Bold",
+}
 
 export type FontType = {
   fontFamily: string;
@@ -23,110 +48,62 @@ export type FontType = {
 };
 
 export const fontsConfig: Record<string, FontType> = {
-  displaySmall: {
-    fontFamily: "Rubik-400",
-    fontSize: RFValue(36),
+  H2: {
+    fontFamily: FontFamily.HeadingSemiBold,
+    fontSize: 24,
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: RFValue(44),
+    lineHeight: 30,
   },
-  displayMedium: {
-    fontFamily: "Rubik-400",
-    fontSize: RFValue(45),
+
+  S2: {
+    fontFamily: FontFamily.SubtitleMedium,
+    fontSize: 16,
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: RFValue(52),
+    lineHeight: 20,
   },
-  displayLarge: {
-    fontFamily: "Rubik-400",
-    fontSize: RFValue(57),
+
+  S3: {
+    fontFamily: FontFamily.SubtitleLight,
+    fontSize: 14,
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: RFValue(64),
+    lineHeight: 18,
   },
-  titleSmall: {
-    fontFamily: "Rubik-400",
-    fontSize: RFValue(14),
-    fontWeight: "normal",
-    letterSpacing: 0.1,
-    lineHeight: RFValue(20),
-  },
-  titleMedium: {
-    fontFamily: "Rubik-400",
-    fontSize: RFValue(16),
-    fontWeight: "normal",
-    letterSpacing: 0.15,
-    lineHeight: RFValue(24),
-  },
-  titleLarge: {
-    fontFamily: "Rubik-400",
-    fontSize: RFValue(22),
+  B1: {
+    fontFamily: FontFamily.BodyRegular,
+    fontSize: 16,
     fontWeight: "normal",
     letterSpacing: 0,
-    lineHeight: RFValue(28),
+    lineHeight: 24,
   },
-  labelSmall: {
-    fontFamily: "SourceCodePro-400",
-    fontSize: RFValue(11),
+  B2: {
+    fontFamily: FontFamily.BodyRegular,
+    fontSize: 14,
     fontWeight: "normal",
-    letterSpacing: 0.5,
-    lineHeight: RFValue(16),
+    letterSpacing: 0,
+    lineHeight: 20,
   },
-  labelMedium: {
-    fontFamily: "SourceCodePro-400",
-    fontSize: RFValue(12),
+  B3: {
+    fontFamily: FontFamily.BodyRegular,
+    fontSize: 12,
     fontWeight: "normal",
-    letterSpacing: 0.5,
-    lineHeight: RFValue(16),
-  },
-  labelLarge: {
-    fontFamily: "SourceCodePro-400",
-    fontSize: RFValue(14),
-    fontWeight: "normal",
-    letterSpacing: 0.1,
-    lineHeight: RFValue(20),
-  },
-  bodySmall: {
-    fontFamily: "Rubik-400",
-    fontSize: RFValue(12),
-    fontWeight: "normal",
-    letterSpacing: 0.4,
-    lineHeight: RFValue(16),
-  },
-  bodyMedium: {
-    fontFamily: "Rubik-400",
-    fontSize: RFValue(14),
-    fontWeight: "normal",
-    letterSpacing: 0.25,
-    lineHeight: RFValue(20),
-  },
-  bodyLarge: {
-    fontFamily: "Rubik-400",
-    fontSize: RFValue(16),
-    fontWeight: "normal",
-    letterSpacing: 0.15,
-    lineHeight: RFValue(24),
+    letterSpacing: 0,
+    lineHeight: 16,
   },
 };
 
 export enum Fonts {
-  displayLarge = "displayLarge",
-  displayMedium = "displayMedium",
-  displaySmall = "displaySmall",
+  H1 = "H1",
+  H2 = "H2",
+  H3 = "H3",
 
-  headlineLarge = "headlineLarge",
-  headlineMedium = "headlineMedium",
-  headlineSmall = "headlineSmall",
+  S1 = "S1",
+  S2 = "S2",
+  S3 = "S3",
 
-  titleLarge = "titleLarge",
-  titleMedium = "titleMedium",
-  titleSmall = "titleSmall",
-
-  labelLarge = "labelLarge",
-  labelMedium = "labelMedium",
-  labelSmall = "labelSmall",
-
-  bodyLarge = "bodyLarge",
-  bodyMedium = "bodyMedium",
-  bodySmall = "bodySmall",
+  B1 = "B1",
+  B2 = "B2",
+  B3 = "B3",
 }

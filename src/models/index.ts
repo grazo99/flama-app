@@ -1,3 +1,3 @@
 import { Organizer } from "./Organizer.model";
-
-export { Organizer };
+import { Event } from "./Event.model";
+export { Organizer, Event };

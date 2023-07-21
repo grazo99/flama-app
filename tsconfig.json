@@ -5,13 +5,7 @@
   },
   "compilerOptions": {
     "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "@components": ["./src/components/*"],
-      "@screens": ["./src/screens/*"],
-      "@utils": ["./src/utils/*"],
-      "@theme": ["./src/theme/*"]
-    }
+    "baseUrl": "."
   },
   "exclude": ["node_modules"]
 }
