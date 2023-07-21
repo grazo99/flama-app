@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, FlatList, View } from "react-native";
 import { ProfileHeader } from "../components/molecules";
 import EventCard from "../components/molecules/EventCard";
 
@@ -7,9 +7,15 @@ const OrganizerProfile = () => {
   return (
     <ScrollView style={styles.container}>
       <ProfileHeader profile={mock.organizer} style={styles.marginBottom} />
-      {mock.events.map((event, index) => (
-        <EventCard key={index} event={event} style={styles.marginBottom} />
-      ))}
+
+      <View>
+        <FlatList
+          data={mock.events}
+          renderItem={({ item }) => <EventCard event={item} />}
+          keyExtractor={(item) => item.id.toString()}
+          ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
+        />
+      </View>
     </ScrollView>
   );
 };
