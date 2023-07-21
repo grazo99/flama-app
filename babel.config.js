@@ -1,6 +1,24 @@
-module.exports = function(api) {
+module.exports = function (api) {
   api.cache(true);
+
+  const presets = ["@babel/preset-react", "babel-preset-expo"];
+  const plugins = [
+    "@babel/plugin-syntax-jsx",
+    [
+      "module-resolver",
+      {
+        root: ["./src"],
+        alias: {
+          "@components": "./src/components",
+          "@screens": "./src/screens",
+          "@theme": "./src/theme",
+        },
+      },
+    ],
+  ];
+
   return {
-    presets: ['babel-preset-expo'],
+    presets,
+    plugins,
   };
 };
