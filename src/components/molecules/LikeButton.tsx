@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { IconSize, Icons } from "../atoms/Icon";
 import { Text } from "../atoms/Text";
 import { Fonts } from "../../theme";
@@ -34,6 +35,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
         onPress={onPress}
         name={isLiked ? Icons.FlameFilled : Icons.FlameOutline}
         size={IconSize.Small}
+        //TODO: fix this
         color={isLiked ? colors.primary : colors.textBody}
       />
       <Text variant={Fonts.B3}>{likeCount}</Text>
