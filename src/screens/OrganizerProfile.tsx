@@ -5,18 +5,19 @@ import EventCard from "../components/molecules/EventCard";
 
 const OrganizerProfile = () => {
   return (
-    <ScrollView style={styles.container}>
-      <ProfileHeader profile={mock.organizer} style={styles.marginBottom} />
-
-      <View>
-        <FlatList
-          data={mock.events}
-          renderItem={({ item }) => <EventCard event={item} />}
-          keyExtractor={(item) => item.id.toString()}
-          ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
-        />
-      </View>
-    </ScrollView>
+    <FlatList
+      data={[{ ...mock.events[0], id: -1 }, ...mock.events]}
+      renderItem={({ item, index }) => {
+        return index == 0 ? (
+          <ProfileHeader profile={mock.organizer} style={styles.marginBottom} />
+        ) : (
+          <EventCard event={item} />
+        );
+      }}
+      keyExtractor={(item) => item.id.toString()}
+      ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
+      style={styles.container}
+    />
   );
 };
 
