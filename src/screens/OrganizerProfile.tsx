@@ -1,37 +1,22 @@
 import React from "react";
-import { StyleSheet, ScrollView, FlatList, View } from "react-native";
 import { ProfileHeader } from "../components/molecules";
 import EventCard from "../components/molecules/EventCard";
+import FlatListWithHeader from "../components/templates/FlatListWithHeader";
 
-const OrganizerProfile = () => {
-  return (
-    <FlatList
-      data={[{ ...mock.events[0], id: -1 }, ...mock.events]}
-      renderItem={({ item, index }) => {
-        return index == 0 ? (
-          <ProfileHeader profile={mock.organizer} style={styles.marginBottom} />
-        ) : (
-          <EventCard event={item} />
-        );
-      }}
-      keyExtractor={(item) => item.id.toString()}
-      ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
-      style={styles.container}
-    />
-  );
+type OrganizerProfileProps = {
+  navigation: any;
 };
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 10,
-    flex: 1,
-    flexDirection: "column",
-    gap: 10,
-  },
-  marginBottom: {
-    marginBottom: 20,
-  },
-});
+const OrganizerProfile = ({ navigation }: OrganizerProfileProps) => (
+  <FlatListWithHeader
+    ListData={mock.events}
+    listDataRenderer={(item) => (
+      <EventCard event={item} navigation={navigation} />
+    )}
+    headerRenderer={() => <ProfileHeader profile={mock.organizer} />}
+    gap={20}
+  />
+);
 
 const mock = {
   organizer: {

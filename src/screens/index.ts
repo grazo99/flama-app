@@ -1,4 +1,4 @@
-import Home from "./Home";
 import OrganizerProfile from "./OrganizerProfile";
+import EventDetails from "./EventDetails";
 
-export { OrganizerProfile, Home };
+export { OrganizerProfile, EventDetails };
