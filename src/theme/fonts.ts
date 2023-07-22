@@ -17,6 +17,7 @@ export const loadFonts = async () => {
         "Lato-Light": require("../../assets/fonts/Lato-Light.ttf"),
         "Lato-Regular": require("../../assets/fonts/Lato-Regular.ttf"),
         "Lato-Bold": require("../../assets/fonts/Lato-Bold.ttf"),
+        "Lato-Black": require("../../assets/fonts/Lato-Black.ttf"),
       }),
     ]);
 
@@ -37,17 +38,26 @@ enum FontFamily {
   BodyLight = "Lato-Light",
   BodyRegular = "Lato-Regular",
   BodyBold = "Lato-Bold",
+  BodyBlack = "Lato-Black",
 }
 
 export type FontType = {
-  fontFamily: string;
+  fontFamily: FontFamily;
   fontSize: number;
   fontWeight: string;
   letterSpacing: number;
   lineHeight: number;
+  textTransform?: "uppercase" | "lowercase" | "capitalize";
 };
 
 export const fontsConfig: Record<string, FontType> = {
+  H1: {
+    fontFamily: FontFamily.HeadingSemiBold,
+    fontSize: 32,
+    fontWeight: "normal",
+    letterSpacing: 0,
+    lineHeight: 36,
+  },
   H2: {
     fontFamily: FontFamily.HeadingSemiBold,
     fontSize: 24,
@@ -79,7 +89,7 @@ export const fontsConfig: Record<string, FontType> = {
     lineHeight: 24,
   },
   B2: {
-    fontFamily: FontFamily.BodyRegular,
+    fontFamily: FontFamily.BodyBlack,
     fontSize: 14,
     fontWeight: "normal",
     letterSpacing: 0,
@@ -91,6 +101,14 @@ export const fontsConfig: Record<string, FontType> = {
     fontWeight: "normal",
     letterSpacing: 0,
     lineHeight: 16,
+  },
+  O3: {
+    fontFamily: FontFamily.HeadingRegular,
+    fontSize: 10,
+    fontWeight: "normal",
+    letterSpacing: 0,
+    lineHeight: 14,
+    textTransform: "uppercase",
   },
 };
 
@@ -106,4 +124,8 @@ export enum Fonts {
   B1 = "B1",
   B2 = "B2",
   B3 = "B3",
+
+  O1 = "O1",
+  O2 = "O2",
+  O3 = "O3",
 }

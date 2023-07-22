@@ -18,13 +18,11 @@ type EventCardProps = {
   event: Event;
   style?: any;
   navigation: any;
+  onPress?: () => void;
 };
 
-const EventCard = ({ event, navigation, style }: EventCardProps) => {
+const EventCard = ({ event, style, onPress }: EventCardProps) => {
   const { colors } = useTheme();
-  const handleEventPress = () => {
-    navigation.navigate("EventDetails", { event });
-  };
 
   const EventInfo = () => (
     <View style={styles.eventInfoContainer}>
@@ -39,7 +37,7 @@ const EventCard = ({ event, navigation, style }: EventCardProps) => {
     </View>
   );
   return (
-    <TouchableOpacity onPress={handleEventPress}>
+    <TouchableOpacity onPress={onPress}>
       <View style={[styles.cardContainer, style]}>
         <ImageBackground
           source={{ uri: event.cover }}

@@ -1,16 +1,16 @@
 import React from "react";
-
 import FlatListWithHeader from "../components/templates/FlatListWithHeader";
-import { View } from "react-native";
-import { Text } from "../components/atoms";
-import { Fonts } from "../theme";
+import EventHeader from "../components/molecules/EventHeader";
+import { useEventDetails } from "./hooks";
 
-const EventDetails = ({ route }: any) => {
-  const { event } = route.params;
+const EventDetails = ({ route, navigation }: any) => {
+  const { event } = useEventDetails({ route, navigation });
   return (
-    <View>
-      <Text variant={Fonts.B1}>{event.name}</Text>
-    </View>
+    <FlatListWithHeader
+      headerRenderer={() => <EventHeader event={event} />}
+      ListData={mock.events}
+      listDataRenderer={({ item }) => <></>}
+    />
   );
 };
 

@@ -1,9 +1,9 @@
 import { colors } from "./colors";
-import { DefaultTheme } from "@react-navigation/native";
+import { DarkTheme } from "@react-navigation/native";
 import { loadFonts, Fonts } from "./fonts";
 
 const Theme = {
-  ...DefaultTheme,
+  ...DarkTheme,
   colors,
 };
 

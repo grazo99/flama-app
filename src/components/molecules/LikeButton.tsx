@@ -35,8 +35,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
         onPress={onPress}
         name={isLiked ? Icons.FlameFilled : Icons.FlameOutline}
         size={IconSize.Small}
-        //TODO: fix this
-        color={isLiked ? colors.primary : colors.textBody}
+        color={isLiked ? colors.primary : colors.text}
       />
       <Text variant={Fonts.B3}>{likeCount}</Text>
     </Tag>

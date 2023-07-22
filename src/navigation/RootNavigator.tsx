@@ -4,18 +4,22 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Theme } from "../theme";
 
 import OrganizerProfileNavigator from "./OrganizerProfile.nav";
+import { routes } from "./routes";
+import LocalizationProvider from "../locales/LocalizationContext";
 
 const Tab = createBottomTabNavigator();
 
 export const RootNavigator = () => {
   return (
-    <NavigationContainer theme={Theme}>
-      <Tab.Navigator screenOptions={{ headerShown: false }}>
-        <Tab.Screen
-          name="OrganizerProfile"
-          component={OrganizerProfileNavigator}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <LocalizationProvider>
+      <NavigationContainer theme={Theme}>
+        <Tab.Navigator screenOptions={{ headerShown: false }}>
+          <Tab.Screen
+            name={routes.OrganizerProfileTab}
+            component={OrganizerProfileNavigator}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </LocalizationProvider>
   );
 };

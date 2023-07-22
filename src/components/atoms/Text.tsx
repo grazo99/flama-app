@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 export type TextProps = {
   children: React.ReactNode;
   borderColor?: string;
-  customStyle?: StyleSheet;
+  style?: any;
   variant: Fonts;
   color?: ColorValue;
 };
@@ -20,13 +20,13 @@ const getFontStyle = (fontVariant: Fonts): FontType => fontsConfig[fontVariant];
 
 export const Text = ({
   children,
-  customStyle,
+  style,
   variant,
-  color = colors.textBody,
+  color = colors.text,
 }: TextProps) => {
   const fontStyle = getFontStyle(variant);
   return (
-    <NativeText style={[styles.text, customStyle, { color: color }, fontStyle]}>
+    <NativeText style={[styles.text, style, { color: color }, fontStyle]}>
       {children}
     </NativeText>
   );

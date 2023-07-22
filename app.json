@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -32,6 +34,9 @@
     },
     "packagerOpt": {
       "config": ".babelrc"
-    }
+    },
+    "plugins": [
+      "expo-localization"
+    ]
   }
 }

@@ -2,21 +2,33 @@ import React from "react";
 import { ProfileHeader } from "../components/molecules";
 import EventCard from "../components/molecules/EventCard";
 import FlatListWithHeader from "../components/templates/FlatListWithHeader";
+import { useOrganizerProfile } from "./hooks";
 
 type OrganizerProfileProps = {
   navigation: any;
 };
 
-const OrganizerProfile = ({ navigation }: OrganizerProfileProps) => (
-  <FlatListWithHeader
-    ListData={mock.events}
-    listDataRenderer={(item) => (
-      <EventCard event={item} navigation={navigation} />
-    )}
-    headerRenderer={() => <ProfileHeader profile={mock.organizer} />}
-    gap={20}
-  />
-);
+const OrganizerProfile = ({ navigation }: OrganizerProfileProps) => {
+  const { handleEventPress } = useOrganizerProfile({
+    navigation,
+    organizer: mock.organizer,
+  });
+
+  return (
+    <FlatListWithHeader
+      ListData={mock.events}
+      listDataRenderer={(item) => (
+        <EventCard
+          event={item}
+          navigation={navigation}
+          onPress={handleEventPress(item)}
+        />
+      )}
+      headerRenderer={() => <ProfileHeader profile={mock.organizer} />}
+      gap={20}
+    />
+  );
+};
 
 const mock = {
   organizer: {
