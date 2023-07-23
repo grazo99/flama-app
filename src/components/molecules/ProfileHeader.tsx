@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     padding: 15,
-    marginTop: 30,
   },
   headerTextArea: {
     display: "flex",

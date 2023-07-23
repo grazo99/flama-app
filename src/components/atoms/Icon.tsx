@@ -86,8 +86,6 @@ const CustomIcon: React.FC<IconProps> = ({ color, size, name, style }) => {
   );
 };
 
-export default CustomIcon;
-
 export const Icons = {
   Calendar: "calendar",
   Location: "loaction",

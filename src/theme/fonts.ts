@@ -66,6 +66,13 @@ export const fontsConfig: Record<string, FontType> = {
     lineHeight: 30,
   },
 
+  S1: {
+    fontFamily: FontFamily.SubtitleMedium,
+    fontSize: 18,
+    fontWeight: "normal",
+    letterSpacing: 0,
+    lineHeight: 22,
+  },
   S2: {
     fontFamily: FontFamily.SubtitleMedium,
     fontSize: 16,
@@ -88,8 +95,9 @@ export const fontsConfig: Record<string, FontType> = {
     letterSpacing: 0,
     lineHeight: 24,
   },
+
   B2: {
-    fontFamily: FontFamily.BodyBlack,
+    fontFamily: FontFamily.BodyRegular,
     fontSize: 14,
     fontWeight: "normal",
     letterSpacing: 0,
@@ -110,6 +118,13 @@ export const fontsConfig: Record<string, FontType> = {
     lineHeight: 14,
     textTransform: "uppercase",
   },
+  HeaderTitle: {
+    fontFamily: FontFamily.BodyBlack,
+    fontSize: 14,
+    fontWeight: "normal",
+    letterSpacing: 0,
+    lineHeight: 20,
+  },
 };
 
 export enum Fonts {
@@ -128,4 +143,6 @@ export enum Fonts {
   O1 = "O1",
   O2 = "O2",
   O3 = "O3",
+
+  HeaderTitle = "HeaderTitle",
 }

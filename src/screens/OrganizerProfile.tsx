@@ -3,6 +3,7 @@ import { ProfileHeader } from "../components/molecules";
 import EventCard from "../components/molecules/EventCard";
 import FlatListWithHeader from "../components/templates/FlatListWithHeader";
 import { useOrganizerProfile } from "./hooks";
+import SafeAreaLayout from "../components/templates/SafeAreaLayout";
 
 type OrganizerProfileProps = {
   navigation: any;
@@ -15,18 +16,20 @@ const OrganizerProfile = ({ navigation }: OrganizerProfileProps) => {
   });
 
   return (
-    <FlatListWithHeader
-      ListData={mock.events}
-      listDataRenderer={(item) => (
-        <EventCard
-          event={item}
-          navigation={navigation}
-          onPress={handleEventPress(item)}
-        />
-      )}
-      headerRenderer={() => <ProfileHeader profile={mock.organizer} />}
-      gap={20}
-    />
+    <SafeAreaLayout>
+      <FlatListWithHeader
+        ListData={mock.events}
+        listDataRenderer={(item) => (
+          <EventCard
+            event={item}
+            navigation={navigation}
+            onPress={handleEventPress(item)}
+          />
+        )}
+        headerRenderer={() => <ProfileHeader profile={mock.organizer} />}
+        gap={10}
+      />
+    </SafeAreaLayout>
   );
 };
 

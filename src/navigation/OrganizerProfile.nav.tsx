@@ -18,7 +18,7 @@ const OrganizerProfileNavigator = () => {
       screenOptions={{
         headerBackTitleVisible: false,
         headerStyle: {
-          height: 80,
+          height: 100,
         },
         headerTintColor: colors.text,
         headerBackground: () => (

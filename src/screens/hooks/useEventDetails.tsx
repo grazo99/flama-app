@@ -13,7 +13,7 @@ export const useEventDetails = ({ navigation, route }: any) => {
       headerTitle: () => (
         <View style={{ alignItems: "center" }}>
           <Text variant={Fonts.O3}>{organizer.name}</Text>
-          <Text variant={Fonts.B2}>{localizedStrings.events}</Text>
+          <Text variant={Fonts.HeaderTitle}>{localizedStrings.events}</Text>
         </View>
       ),
     });

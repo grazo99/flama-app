@@ -1,21 +1,15 @@
 import React from "react";
 import { StyleSheet, FlatList, View } from "react-native";
-
-type FlatListWithHeaderProps = {
-  listDataRenderer: (item: any) => React.ReactElement | null;
-  headerRenderer: () => React.ReactElement<
-    any,
-    string | React.JSXElementConstructor<any>
-  > | null;
-  gap?: number;
-  ListData: any[];
-};
+import { useFlatListWithHeader } from "./hooks";
+import { FlatListWithHeaderProps } from "./types";
+import { FlashList } from "@shopify/flash-list";
 
 const FlatListWithHeader = ({
   headerRenderer,
   ListData,
   listDataRenderer,
   gap,
+  numColumns,
 }: FlatListWithHeaderProps) => {
   const { handleRenderItem, handleKeyExtractor } = useFlatListWithHeader({
     headerRenderer,
@@ -28,6 +22,8 @@ const FlatListWithHeader = ({
       keyExtractor={handleKeyExtractor}
       ItemSeparatorComponent={() => <View style={{ height: gap }} />}
       style={styles.container}
+      numColumns={numColumns}
+      horizontal={false}
     />
   );
 };
@@ -42,13 +38,3 @@ const styles = StyleSheet.create({
 });
 
 export default FlatListWithHeader;
-
-const useFlatListWithHeader = ({ headerRenderer, listDataRenderer }: any) => {
-  const handleRenderItem = ({ item, index }: any) => {
-    return index == 0 ? headerRenderer?.() : listDataRenderer?.(item);
-  };
-  const handleKeyExtractor = (item: any, index: number) => {
-    return index == 0 ? -1 : item.id.toString();
-  };
-  return { handleRenderItem, handleKeyExtractor };
-};

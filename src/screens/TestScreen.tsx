@@ -1,21 +1,13 @@
 import React from "react";
-import EventHeader from "../components/molecules/EventHeader";
-import { StyleSheet } from "react-native";
-import { useEventDetails } from "./hooks";
-import { MediaItem } from "../components/organisms/types";
 import MediaGrid from "../components/organisms/MediaGrid";
+import { MediaItem } from "../components/organisms/types/MediaGrid.types";
+import { StyleSheet } from "react-native";
 
-const EventDetails = ({ route, navigation }: any) => {
-  const { event } = useEventDetails({ route, navigation });
-  return (
-    <MediaGrid
-      items={mediaItems}
-      columns={3}
-      styles={styles}
-      headerRenderer={() => <EventHeader event={event} />}
-    />
-  );
+const TestScreen = ({ route, navigation }: any) => {
+  return <MediaGrid items={mediaItems} columns={2} styles={styles} />;
 };
+
+export default TestScreen;
 
 const mediaItems: MediaItem[] = [
   {
@@ -184,14 +176,10 @@ const mediaItems: MediaItem[] = [
 const styles = StyleSheet.create({
   gridContainer: {
     padding: 8,
-    width: "100%",
-    flex: 1,
-    alignSelf: "center",
-    justifyContent: "space-between",
   },
   gridItem: {
-    margin: 2,
-    borderRadius: 5,
+    margin: 4,
+    borderRadius: 8,
     overflow: "hidden",
   },
   image: {
@@ -201,5 +189,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-export default EventDetails;
