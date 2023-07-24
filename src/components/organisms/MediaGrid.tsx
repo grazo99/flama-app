@@ -2,7 +2,7 @@ import React from "react";
 
 import { MediaGridProps, MediaItem } from "./types";
 import { useMediaGrid } from "./hooks/useMediaGrid";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList, MasonryFlashList } from "@shopify/flash-list";
 
 const MediaGrid = ({
   items,
@@ -13,7 +13,7 @@ const MediaGrid = ({
   const { renderItem, itemHeight } = useMediaGrid(styles, columns);
 
   return (
-    <FlashList
+    <MasonryFlashList
       ListHeaderComponent={headerRenderer}
       data={items}
       keyExtractor={(item: MediaItem) => item.id.toString()}

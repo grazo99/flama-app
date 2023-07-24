@@ -74,7 +74,7 @@ export const fontsConfig: Record<string, FontType> = {
     lineHeight: 22,
   },
   S2: {
-    fontFamily: FontFamily.SubtitleMedium,
+    fontFamily: FontFamily.BodyRegular,
     fontSize: 16,
     fontWeight: "normal",
     letterSpacing: 0,

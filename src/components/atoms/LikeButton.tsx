@@ -47,7 +47,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({
         name={isLiked ? Icons.FlameFilled : Icons.FlameOutline}
         size={size}
         color={isLiked ? colors.primary : colors.text}
-        hitSlop={50}
+        hitSlop={20}
       />
       {likeCount && <Text variant={Fonts.B2}>{likeCount}</Text>}
     </View>

@@ -21,7 +21,7 @@ const OrganizerProfileNavigator = () => {
         headerTintColor: colors.text,
         headerBackground: () => (
           <LinearGradient
-            colors={["#000000", "transparent"]}
+            colors={["#000000", colors.background]}
             style={{ flex: 1 }}
             start={Platform.OS != "web" ? [0.5, 0.4] : [0, 0]}
           />

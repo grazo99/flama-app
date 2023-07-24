@@ -96,6 +96,6 @@ export const Icons = {
 
 export enum IconSize {
   Small = 14,
-  Medium = 20,
+  Medium = 24,
   Large = 32,
 }
