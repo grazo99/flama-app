@@ -13,12 +13,7 @@ export type IconProps = {
   style?: any;
 };
 
-export const Icon = ({
-  size,
-  color = colors.textBody,
-  name,
-  style,
-}: IconProps) => {
+export const Icon = ({ size, color = colors.text, name, style }: IconProps) => {
   switch (name) {
     case Icons.Location:
       return (
@@ -34,6 +29,15 @@ export const Icon = ({
       return (
         <FeatherIcon
           name={"calendar"}
+          size={size}
+          style={[style]}
+          color={color}
+        />
+      );
+    case Icons.ChevronLeft:
+      return (
+        <FeatherIcon
+          name={"chevron-left"}
           size={size}
           style={[style]}
           color={color}
@@ -82,13 +86,12 @@ const CustomIcon: React.FC<IconProps> = ({ color, size, name, style }) => {
   );
 };
 
-export default CustomIcon;
-
 export const Icons = {
   Calendar: "calendar",
   Location: "loaction",
   FlameFilled: "flameFilled",
   FlameOutline: "flameOutline",
+  ChevronLeft: "chevronLeft",
 };
 
 export enum IconSize {

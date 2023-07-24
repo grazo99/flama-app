@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { loadFonts } from "./src/theme";
 import { RootNavigator } from "./src/navigation/RootNavigator";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -19,5 +20,10 @@ export default function App() {
     return null;
   }
 
-  return <RootNavigator />;
+  return (
+    <>
+      <StatusBar style="light" />
+      <RootNavigator />
+    </>
+  );
 }

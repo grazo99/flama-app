@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     gap: 15,
     justifyContent: "flex-start",
     alignItems: "center",
+    padding: 15,
   },
   headerTextArea: {
     display: "flex",

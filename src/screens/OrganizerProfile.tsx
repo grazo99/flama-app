@@ -1,37 +1,33 @@
 import React from "react";
-import { StyleSheet, ScrollView, FlatList, View } from "react-native";
 import { ProfileHeader } from "../components/molecules";
 import EventCard from "../components/molecules/EventCard";
+import { useOrganizerProfile } from "./hooks";
+import { View } from "react-native";
+import { ScreenProps } from "./types";
+import { FlashList } from "@shopify/flash-list";
 
-const OrganizerProfile = () => {
+const OrganizerProfile = ({ navigation }: ScreenProps) => {
+  const { handleEventPress } = useOrganizerProfile({
+    navigation,
+    organizer: mock.organizer,
+  });
+
   return (
-    <FlatList
-      data={[{ ...mock.events[0], id: -1 }, ...mock.events]}
-      renderItem={({ item, index }) => {
-        return index == 0 ? (
-          <ProfileHeader profile={mock.organizer} style={styles.marginBottom} />
-        ) : (
-          <EventCard event={item} />
-        );
-      }}
-      keyExtractor={(item) => item.id.toString()}
-      ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
-      style={styles.container}
+    <FlashList
+      data={mock.events}
+      renderItem={({ item }) => (
+        <EventCard
+          event={item}
+          navigation={navigation}
+          onPress={handleEventPress(item)}
+        />
+      )}
+      estimatedItemSize={400}
+      ListHeaderComponent={() => <ProfileHeader profile={mock.organizer} />}
+      ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 10,
-    flex: 1,
-    flexDirection: "column",
-    gap: 10,
-  },
-  marginBottom: {
-    marginBottom: 20,
-  },
-});
 
 const mock = {
   organizer: {

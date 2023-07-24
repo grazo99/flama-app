@@ -7,7 +7,13 @@ import { IconProps, Icon } from "./Icon";
 
 type IconButtonProps = TouchableOpacityProps & IconProps;
 
-const IconButton = ({ onPress, name, size, color }: IconButtonProps) => {
+const IconButton = ({
+  onPress,
+  name,
+  size,
+  color,
+  hitSlop,
+}: IconButtonProps) => {
   const scaleAnim = new Animated.Value(1);
 
   const handlePressIn = () => {
@@ -29,6 +35,7 @@ const IconButton = ({ onPress, name, size, color }: IconButtonProps) => {
       onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
+      hitSlop={hitSlop}
     >
       <Icon name={name} size={size} color={color} />
     </TouchableOpacity>
