@@ -5,6 +5,7 @@ import { useOrganizerProfile } from "./hooks";
 
 import { FlatList, View } from "react-native";
 import { ScreenProps } from "./types";
+import { FlashList } from "@shopify/flash-list";
 
 const OrganizerProfile = ({ navigation }: ScreenProps) => {
   const { handleEventPress } = useOrganizerProfile({
@@ -13,7 +14,7 @@ const OrganizerProfile = ({ navigation }: ScreenProps) => {
   });
 
   return (
-    <FlatList
+    <FlashList
       data={mock.events}
       renderItem={({ item }) => (
         <EventCard
@@ -22,6 +23,7 @@ const OrganizerProfile = ({ navigation }: ScreenProps) => {
           onPress={handleEventPress(item)}
         />
       )}
+      estimatedItemSize={400}
       ListHeaderComponent={() => <ProfileHeader profile={mock.organizer} />}
       ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
     />

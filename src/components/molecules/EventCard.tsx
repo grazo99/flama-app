@@ -27,7 +27,7 @@ const EventCard = ({ event, style, onPress }: EventCardProps) => {
   const EventInfo = () => (
     <View style={styles.eventInfoContainer}>
       <Text variant={Fonts.H2}>{event.name}</Text>
-      <Text variant={Fonts.S3}>{event.lineup.join(", ")}</Text>
+      <Text variant={Fonts.S2}>{event.lineup.join(", ")}</Text>
       <View style={styles.eventDataContainer}>
         <View style={styles.eventDataItem}>
           <Icon name={Icons.Location} size={IconSize.Small} />

@@ -67,22 +67,22 @@ export const fontsConfig: Record<string, FontType> = {
   },
 
   S1: {
-    fontFamily: FontFamily.SubtitleMedium,
+    fontFamily: FontFamily.BodyRegular,
     fontSize: 18,
     fontWeight: "normal",
-    letterSpacing: 0,
+    letterSpacing: 1,
     lineHeight: 22,
   },
   S2: {
     fontFamily: FontFamily.BodyRegular,
     fontSize: 16,
     fontWeight: "normal",
-    letterSpacing: 0,
+    letterSpacing: 1,
     lineHeight: 20,
   },
 
   S3: {
-    fontFamily: FontFamily.SubtitleLight,
+    fontFamily: FontFamily.BodyRegular,
     fontSize: 14,
     fontWeight: "normal",
     letterSpacing: 0,
