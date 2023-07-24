@@ -2,7 +2,7 @@ import React from "react";
 
 import { MediaGridProps, MediaItem } from "./types";
 import { useMediaGrid } from "./hooks/useMediaGrid";
-import { FlashList, MasonryFlashList } from "@shopify/flash-list";
+import { MasonryFlashList } from "@shopify/flash-list";
 
 const MediaGrid = ({
   items,

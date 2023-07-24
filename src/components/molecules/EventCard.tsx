@@ -3,7 +3,6 @@ import {
   ImageBackground,
   View,
   StyleSheet,
-  Touchable,
   TouchableOpacity,
 } from "react-native";
 import { Icon, Text } from "../atoms";

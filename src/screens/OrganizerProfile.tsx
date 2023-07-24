@@ -2,8 +2,7 @@ import React from "react";
 import { ProfileHeader } from "../components/molecules";
 import EventCard from "../components/molecules/EventCard";
 import { useOrganizerProfile } from "./hooks";
-
-import { FlatList, View } from "react-native";
+import { View } from "react-native";
 import { ScreenProps } from "./types";
 import { FlashList } from "@shopify/flash-list";
 
