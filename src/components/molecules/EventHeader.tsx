@@ -24,13 +24,23 @@ const EventHeader: React.FC<EventHeaderProps> = ({ event, style }) => {
       </Text>
 
       <View style={styles.headerFooter}>
-        <View style={styles.eventDataItem}>
-          <Icon
-            name={Icons.Location}
-            size={IconSize.Small}
-            color={colors.text}
-          />
-          <Text variant={Fonts.B2}>{event.location}</Text>
+        <View style={styles.eventDataContainer}>
+          <View style={styles.eventDataItem}>
+            <Icon
+              name={Icons.Calendar}
+              size={IconSize.Small}
+              color={colors.text}
+            />
+            <Text variant={Fonts.B2}>{event.date}</Text>
+          </View>
+          <View style={styles.eventDataItem}>
+            <Icon
+              name={Icons.Location}
+              size={IconSize.Small}
+              color={colors.text}
+            />
+            <Text variant={Fonts.B2}>{event.location}</Text>
+          </View>
         </View>
         <LikeButton liked size={IconSize.Large} likeCount={event.likeCount} />
       </View>
@@ -44,7 +54,6 @@ const styles = StyleSheet.create({
     gap: 10,
     padding: 15,
     paddingTop: 0,
-
     width: "100%",
   },
   headerFooter: {
@@ -59,6 +68,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 5,
+  },
+  eventDataContainer: {
+    alignItems: "flex-start",
+    gap: 3,
   },
 });
 

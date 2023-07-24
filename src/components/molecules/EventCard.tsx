@@ -56,7 +56,9 @@ const EventCard = ({ event, style, onPress }: EventCardProps) => {
           />
         </Tag>
         <Tag style={[styles.eventDateTag]} color={colors.background}>
-          <Text variant={Fonts.B3}>{event.date}</Text>
+          <Text variant={Fonts.B3} color={colors.primary}>
+            {event.date}
+          </Text>
         </Tag>
       </View>
     </TouchableOpacity>
