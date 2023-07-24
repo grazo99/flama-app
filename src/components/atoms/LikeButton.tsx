@@ -1,24 +1,28 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { IconSize, Icons } from "../atoms/Icon";
-import { Text } from "../atoms/Text";
+import { IconSize, Icons } from "./Icon";
+import { Text } from "./Text";
 import { Fonts } from "../../theme";
 import { useState } from "react";
-import IconButton from "../atoms/IconButton";
+import IconButton from "./IconButton";
 import { useTheme } from "@react-navigation/native";
-import Tag from "../atoms/Tag";
+import Tag from "./Tag";
+import { StyleSheet, View } from "react-native";
 
 type LikeButtonProps = {
   onClick?: () => void;
   liked: boolean;
-  likeCount: number;
-  variant?: "small" | "large";
+  likeCount?: number;
+  size?: IconSize;
   style?: any;
+  row?: boolean;
 };
 
 const LikeButton: React.FC<LikeButtonProps> = ({
   onClick,
   liked,
   likeCount,
+  size = IconSize.Small,
+  row,
   style,
 }) => {
   const [isLiked, setIsLiked] = useState(liked);
@@ -29,16 +33,24 @@ const LikeButton: React.FC<LikeButtonProps> = ({
 
   const { colors } = useTheme();
 
+  const customStyle = StyleSheet.create({
+    container: {
+      flexDirection: row ? "row" : "column",
+      gap: 2,
+      alignItems: "center",
+    },
+  });
   return (
-    <Tag color={colors.background} style={style}>
+    <View style={[customStyle.container, style]}>
       <IconButton
         onPress={onPress}
         name={isLiked ? Icons.FlameFilled : Icons.FlameOutline}
-        size={IconSize.Small}
+        size={size}
         color={isLiked ? colors.primary : colors.text}
+        hitSlop={50}
       />
-      <Text variant={Fonts.B3}>{likeCount}</Text>
-    </Tag>
+      {likeCount && <Text variant={Fonts.B2}>{likeCount}</Text>}
+    </View>
   );
 };
 

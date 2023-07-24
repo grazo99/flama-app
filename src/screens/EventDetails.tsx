@@ -4,8 +4,9 @@ import { StyleSheet } from "react-native";
 import { useEventDetails } from "./hooks";
 import { MediaItem } from "../components/organisms/types";
 import MediaGrid from "../components/organisms/MediaGrid";
+import { ScreenProps } from "./types";
 
-const EventDetails = ({ route, navigation }: any) => {
+const EventDetails = ({ route, navigation }: ScreenProps) => {
   const { event } = useEventDetails({ route, navigation });
   return (
     <MediaGrid
@@ -186,8 +187,6 @@ const styles = StyleSheet.create({
     padding: 8,
     width: "100%",
     flex: 1,
-    alignSelf: "center",
-    justifyContent: "space-between",
   },
   gridItem: {
     margin: 2,

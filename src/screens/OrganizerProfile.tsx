@@ -1,35 +1,30 @@
 import React from "react";
 import { ProfileHeader } from "../components/molecules";
 import EventCard from "../components/molecules/EventCard";
-import FlatListWithHeader from "../components/templates/FlatListWithHeader";
 import { useOrganizerProfile } from "./hooks";
-import SafeAreaLayout from "../components/templates/SafeAreaLayout";
 
-type OrganizerProfileProps = {
-  navigation: any;
-};
+import { FlatList, View } from "react-native";
+import { ScreenProps } from "./types";
 
-const OrganizerProfile = ({ navigation }: OrganizerProfileProps) => {
+const OrganizerProfile = ({ navigation }: ScreenProps) => {
   const { handleEventPress } = useOrganizerProfile({
     navigation,
     organizer: mock.organizer,
   });
 
   return (
-    <SafeAreaLayout>
-      <FlatListWithHeader
-        ListData={mock.events}
-        listDataRenderer={(item) => (
-          <EventCard
-            event={item}
-            navigation={navigation}
-            onPress={handleEventPress(item)}
-          />
-        )}
-        headerRenderer={() => <ProfileHeader profile={mock.organizer} />}
-        gap={10}
-      />
-    </SafeAreaLayout>
+    <FlatList
+      data={mock.events}
+      renderItem={({ item }) => (
+        <EventCard
+          event={item}
+          navigation={navigation}
+          onPress={handleEventPress(item)}
+        />
+      )}
+      ListHeaderComponent={() => <ProfileHeader profile={mock.organizer} />}
+      ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+    />
   );
 };
 

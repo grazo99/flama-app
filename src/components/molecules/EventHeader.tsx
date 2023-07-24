@@ -5,6 +5,7 @@ import { View, StyleSheet } from "react-native";
 import { Event } from "../../models";
 import { Icon, IconSize, Icons } from "../atoms/Icon";
 import { useTheme } from "@react-navigation/native";
+import LikeButton from "../atoms/LikeButton";
 
 interface EventHeaderProps {
   event: Event;
@@ -22,7 +23,7 @@ const EventHeader: React.FC<EventHeaderProps> = ({ event, style }) => {
         {event.lineup.join(", ")}
       </Text>
 
-      <View style={styles.eventDataContainer}>
+      <View style={styles.headerFooter}>
         <View style={styles.eventDataItem}>
           <Icon
             name={Icons.Location}
@@ -31,6 +32,7 @@ const EventHeader: React.FC<EventHeaderProps> = ({ event, style }) => {
           />
           <Text variant={Fonts.B2}>{event.location}</Text>
         </View>
+        <LikeButton liked size={IconSize.Large} likeCount={event.likeCount} />
       </View>
     </View>
   );
@@ -41,15 +43,17 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     gap: 10,
     padding: 15,
-    height: 180,
-    borderColor: "red",
-    borderWidth: 1,
+    paddingTop: 0,
+
     width: "100%",
   },
-  eventDataContainer: {
+  headerFooter: {
     flexDirection: "row",
-    alignItems: "center",
-    marginTop: 15,
+    alignItems: "flex-end",
+    marginTop: 0,
+    justifyContent: "space-between",
+
+    width: "100%",
   },
   eventDataItem: {
     flexDirection: "row",

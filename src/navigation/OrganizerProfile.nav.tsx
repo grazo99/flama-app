@@ -17,9 +17,7 @@ const OrganizerProfileNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerBackTitleVisible: false,
-        headerStyle: {
-          height: 100,
-        },
+
         headerTintColor: colors.text,
         headerBackground: () => (
           <LinearGradient
@@ -36,6 +34,7 @@ const OrganizerProfileNavigator = () => {
         component={OrganizerProfile}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen name={routes.EventDetails} component={EventDetails} />
     </Stack.Navigator>
   );

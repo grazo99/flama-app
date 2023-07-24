@@ -9,7 +9,7 @@ import {
 import { Icon, Text } from "../atoms";
 import { Fonts } from "../../theme";
 import { IconSize, Icons } from "../atoms/Icon";
-import LikeButton from "./LikeButton";
+import LikeButton from "../atoms/LikeButton";
 import { Event } from "../../models";
 import Tag from "../atoms/Tag";
 import { useTheme } from "@react-navigation/native";
@@ -47,11 +47,14 @@ const EventCard = ({ event, style, onPress }: EventCardProps) => {
           <View style={styles.overlay}></View>
           <EventInfo />
         </ImageBackground>
-        <LikeButton
-          liked={false}
-          likeCount={event.likeCount}
-          style={styles.likeButtonTag}
-        />
+        <Tag color={colors.background} style={styles.likeButtonTag}>
+          <LikeButton
+            liked={false}
+            likeCount={event.likeCount}
+            size={IconSize.Medium}
+            row={true}
+          />
+        </Tag>
         <Tag style={[styles.eventDateTag]} color={colors.background}>
           <Text variant={Fonts.B3}>{event.date}</Text>
         </Tag>

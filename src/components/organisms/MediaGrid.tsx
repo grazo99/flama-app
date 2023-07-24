@@ -10,7 +10,7 @@ const MediaGrid = ({
   styles,
   headerRenderer,
 }: MediaGridProps) => {
-  const { renderItem } = useMediaGrid(styles, columns);
+  const { renderItem, itemHeight } = useMediaGrid(styles, columns);
 
   return (
     <FlashList
@@ -19,7 +19,7 @@ const MediaGrid = ({
       keyExtractor={(item: MediaItem) => item.id.toString()}
       renderItem={renderItem}
       numColumns={columns}
-      contentContainerStyle={styles.gridContainer}
+      estimatedItemSize={itemHeight}
     />
   );
 };
